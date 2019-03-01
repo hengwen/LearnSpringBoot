@@ -1,6 +1,6 @@
 # Server configuration
 server:
-  port: 9998
+  port: 9997
   tomcat:
     max-threads: 1000
     max-connections: 1000
@@ -10,7 +10,7 @@ mybatis:
   #Mapper.xml所在的位置
   mapper-locations: classpath:mapping/**/*.xml
   #entity扫描的包名
-  type-aliases-package: style.jason.mybatisdemo.domain.modul
+  type-aliases-package: style.jason.transactiondemo.domain.modul
   configuration:
     call-setters-on-nulls: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
