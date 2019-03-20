@@ -1,16 +1,16 @@
 package style.jason.jpademo2.domain.modul;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name="username")
     private String username;
+    @Column
     private Integer age;
 
     public Long getId() {
