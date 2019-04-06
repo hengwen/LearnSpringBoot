@@ -19,7 +19,8 @@ public class MyTimer {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(simpleDateFormat.format(calendar.getTime()));
-        calendar.add(Calendar.SECOND, 3);
+//        calendar.add(Calendar.SECOND, -12);
+//        System.out.println(simpleDateFormat.format(calendar.getTime()));
         // 使用当前时间3秒后执行一次
 //        TimerTask timerTask = new MyTimerTask("Jason");
 //        timer.schedule(timerTask, calendar.getTime());
@@ -33,8 +34,14 @@ public class MyTimer {
 //        TimerTask timerTask = new MyTimerTask("Schedule3");
 //        timer.schedule(timerTask, 2000, 2000);
         // 获取任务第一次执行的时间
-        TimerTask timerTask = new MyTimerTask("Schedule4");
-        timer.schedule(timerTask, 2000);
-        System.out.println("do schedule time is:" + simpleDateFormat.format(timerTask.scheduledExecutionTime()));
+//        c
+//        timer.schedule(timerTask, 2000);
+//        System.out.println("do schedule time is:" + simpleDateFormat.format(timerTask.scheduledExecutionTime()));
+        // 首次计划执行时间早于当前时间的时候
+        TimerTask timerTask = new MyTimerTask("total");
+        // 1. schedule会立刻执行
+//        timer.schedule(timerTask, calendar.getTime(), 2000);
+        // 2. scheduleAtFixedRate会连续执行早于当前时间这段时间的执行任务，直到赶上当前时间
+        timer.scheduleAtFixedRate(timerTask, calendar.getTime(), 2000);
     }
 }

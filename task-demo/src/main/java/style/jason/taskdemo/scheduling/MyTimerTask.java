@@ -14,11 +14,16 @@ public class MyTimerTask extends TimerTask {
 
     @Override
     public void run() {
-        if (count < 3) {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (count < 10) {
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            System.out.println(simpleDateFormat.format(calendar.getTime()));
-            System.out.println("current name:" + name);
+            System.out.println("excute timer is :" + simpleDateFormat.format(scheduledExecutionTime()));
+            System.out.println("current name:" + name + " and count is " + count);
             count++;
         } else {
             cancel();
